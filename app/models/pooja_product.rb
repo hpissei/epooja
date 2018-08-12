@@ -1,0 +1,2 @@
+class PoojaProduct < ApplicationRecord
+end

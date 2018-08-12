@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Pooja_id: 1
+  User_id: 1
+  Book_date: 2018-08-12
+  Book_time: 2018-08-12 21:00:40
+  Book_status: MyString
+
+two:
+  Pooja_id: 1
+  User_id: 1
+  Book_date: 2018-08-12
+  Book_time: 2018-08-12 21:00:40
+  Book_status: MyString

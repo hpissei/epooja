@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Pooja_id: 1
+  Product_id: 1
+  Quantity: 1.5
+
+two:
+  Pooja_id: 1
+  Product_id: 1
+  Quantity: 1.5
