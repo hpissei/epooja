@@ -66,3 +66,6 @@ gem 'pg'
 gem 'devise'
 #haml
 gem 'haml'
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'jquery-rails'
+gem 'will_paginate', '~> 3.1.0'

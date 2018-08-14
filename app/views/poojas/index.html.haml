@@ -1,5 +1,17 @@
-%div.row
-  %h1 Poojas#index
-  %ul
-    = @pooja.each do |p|
-      %li p.inspect
+= render partial: 'shared/header'
+%div.container-fluid
+  %div.row
+    %h1.jumbotron(align:right)  Poojas
+    %div.list-group
+    - @poojas.each do |p|
+      %a.list-group-item.list-group-item-action.flex-column.align-items-start
+        %div.d-flex.w-100.justify-content-between
+          %h5.mb-1= p.Description
+          %p.mb-1 Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus vari
+          %small Donec id elit non mi porta.
+  %div.row
+    %div.col-xs-12.col-sm-12
+      %div.list-group.poojas
+      - @poojas.each do |p|
+        =link_to p.Description,"",{class:"list-group-item list-group-item-action"}
+= will_paginate @poojas

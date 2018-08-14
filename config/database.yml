@@ -15,7 +15,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: epooja
+  database: epooja_test
   pool: 5
   username: hp
   password: #ichigo$
