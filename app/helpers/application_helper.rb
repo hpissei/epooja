@@ -25,7 +25,7 @@ def send_mail(user)
   content = Content.new(type: 'text/html', value: body )
   mail = Mail.new(from, subject, to, content)
   #to replace with environment variable
-  sg = SendGrid::API.new(api_key: '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')
+  sg = SendGrid::API.new(api_key: ENV["SENDGRID"].to_s)
   response = sg.client.mail._('send').post(request_body: mail.to_json)
   puts response.status_code
   puts response.body
