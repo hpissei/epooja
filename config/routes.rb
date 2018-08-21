@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions',registrations: "users/registrations", passwords: 'users/passwords' }
 
   root 'poojas#index'
-
+  get  'poojas/:id', to: 'poojas#pooja', as: 'poojas_pooja'
   #confirm email token
   get 'emails/', to: 'emails#confirm_email_token'
   #change password
   get 'passwords/', to: 'passwords#change_password'
-
+  resources :orders
 end

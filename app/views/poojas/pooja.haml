@@ -1,0 +1,41 @@
+= render partial: 'shared/header'
+%html
+  %head
+    %title Pooja
+  %body
+    %ul
+      - @pooja.errors.each do |attr, msg|
+        %li = @user.errors.full_messages_for(attr).first if @user.errors[attr].first == msg
+
+= form_for(@order) do |f|
+  %div.container
+    %div.row
+      = f.hidden_field :id, value: @pooja.id
+    %div.row
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1
+        = f.label "Title"
+        %p #{@pooja.Title}
+    %div.row
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1
+        = f.label "Description"
+        = f.hidden_field :Pooja_id, value: @pooja.id
+        = f.hidden_field :User_id, value: current_user.id
+        %p #{@pooja.Description}
+    %div.row
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1
+        = f.label "Price"
+        %p Rs.#{@pooja.Price}
+    %div.row
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
+        = f.label :Book_date
+        = f.hidden_field :Book_status, value: 'a'
+        = f.text_field :Book_date, placeholder: "Booking Date", type: "date", class: "form-control"
+        %br
+    %div.row
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
+        = f.label "Booking Time"
+        = f.text_field :Book_time, placeholder: "Booking Time", type: "time", class: "form-control"
+        %br
+    %div.row
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1
+        %button.btn.btn-success{type: "submit"} Book
