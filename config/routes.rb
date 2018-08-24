@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   #change password
   get 'passwords/', to: 'passwords#change_password'
   resources :orders
+  resources :customer_addresses
 end

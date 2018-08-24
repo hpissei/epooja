@@ -7,6 +7,7 @@ class PoojasController < ApplicationController
     if params[:id]
       @pooja=Pooja.find(params[:id])
       @order=Order.new
+      @address=CustomerAddress.new
     else
       flash[:error]="Pooja not Found!!!"
     end

@@ -12,19 +12,19 @@
     %div.row
       = f.hidden_field :id, value: @pooja.id
     %div.row
-      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
         = f.label "Title"
-        %p #{@pooja.Title}
+        = f.text_field :Title, value: @pooja.Title, class: "form-control disabled", disabled: true
     %div.row
-      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
         = f.label "Description"
         = f.hidden_field :Pooja_id, value: @pooja.id
         = f.hidden_field :User_id, value: current_user.id
-        %p #{@pooja.Description}
+        = f.text_field :Description, value: @pooja.Description, class: "form-control disabled", disabled: true
     %div.row
-      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
         = f.label "Price"
-        %p Rs.#{@pooja.Price}
+        = f.text_field :Price, value: "Rs.#{@pooja.Price}", class: "form-control disabled", disabled: true
     %div.row
       %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
         = f.label :Book_date
@@ -36,6 +36,32 @@
         = f.label "Booking Time"
         = f.text_field :Book_time, placeholder: "Booking Time", type: "time", class: "form-control"
         %br
+    /%div.row
+    /  %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1
+    /    %button.btn.btn-success{type: "submit"} Book
+= form_for(@address) do |a|
+  %div.container
     %div.row
-      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1
-        %button.btn.btn-success{type: "submit"} Book
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
+        = a.label :state
+        = a.text_field :state, class: "form-control"
+    %div.row
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
+        = a.label :city
+        = a.text_field :city, class: "form-control"
+    %div.row
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
+        = a.label "Select Address Type"
+        = check_box_tag "Select Address",class: "form-control"
+    %div.row
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
+        = a.label :permanentAddress, class: ""
+        = a.text_area :permanentAddress, class: "form-control disabled", disabled: "true"
+    %div.row
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
+        = a.label :temporaryAddress
+        = a.text_area :temporaryAddress, class: "form-control"
+        %br
+    %div.row
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
+        %submit.btn.btn-success Save
