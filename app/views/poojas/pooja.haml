@@ -1,8 +1,11 @@
-= render partial: 'shared/header'
+!!!
 %html
   %head
     %title Pooja
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+
   %body
+    = render partial: 'shared/header'
     %ul
       - @pooja.errors.each do |attr, msg|
         %li = @user.errors.full_messages_for(attr).first if @user.errors[attr].first == msg
@@ -12,56 +15,35 @@
     %div.row
       = f.hidden_field :id, value: @pooja.id
     %div.row
-      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-8.col-xs-8
         = f.label "Title"
         = f.text_field :Title, value: @pooja.Title, class: "form-control disabled", disabled: true
     %div.row
-      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-8.col-xs-8
         = f.label "Description"
         = f.hidden_field :Pooja_id, value: @pooja.id
         = f.hidden_field :User_id, value: current_user.id
         = f.text_field :Description, value: @pooja.Description, class: "form-control disabled", disabled: true
     %div.row
-      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-8.col-xs-8
         = f.label "Price"
         = f.text_field :Price, value: "Rs.#{@pooja.Price}", class: "form-control disabled", disabled: true
     %div.row
-      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-8.col-xs-8
         = f.label :Book_date
         = f.hidden_field :Book_status, value: 'a'
-        = f.text_field :Book_date, placeholder: "Booking Date", type: "date", class: "form-control"
+        = f.text_field :Book_date, placeholder: "Booking Date", type: "date", class: "form-control", "date-role": "date", "data-inline": true
         %br
     %div.row
-      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-8.col-xs-8
         = f.label "Booking Time"
         = f.text_field :Book_time, placeholder: "Booking Time", type: "time", class: "form-control"
         %br
-    /%div.row
-    /  %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1
-    /    %button.btn.btn-success{type: "submit"} Book
-= form_for(@address) do |a|
-  %div.container
     %div.row
-      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
-        = a.label :state
-        = a.text_field :state, class: "form-control"
-    %div.row
-      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
-        = a.label :city
-        = a.text_field :city, class: "form-control"
-    %div.row
-      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
-        = a.label "Select Address Type"
-        = check_box_tag "Select Address",class: "form-control"
-    %div.row
-      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
-        = a.label :permanentAddress, class: ""
-        = a.text_area :permanentAddress, class: "form-control disabled", disabled: "true"
-    %div.row
-      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
-        = a.label :temporaryAddress
-        = a.text_area :temporaryAddress, class: "form-control"
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-8.col-xs-8
+        = f.label :address
+        = f.text_area :address, placeholder: "Address", class: "form-control"
         %br
     %div.row
-      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-6.col-xs-6
-        %submit.btn.btn-success Save
+      %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-8.col-xs-8
+        %button.btn.btn-success{type: "submit"} Book
