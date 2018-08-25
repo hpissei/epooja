@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_15_165632) do
+ActiveRecord::Schema.define(version: 2018_08_25_144625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "customer_addresses", force: :cascade do |t|
+    t.integer "userId"
+    t.string "state"
+    t.string "city"
+    t.string "permanentAddress"
+    t.string "temporaryAddress"
+    t.string "addressSelected", limit: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "models", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -40,6 +51,7 @@ ActiveRecord::Schema.define(version: 2018_08_15_165632) do
     t.string "Book_status", limit: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
   end
 
   create_table "pooja_products", force: :cascade do |t|
@@ -56,6 +68,7 @@ ActiveRecord::Schema.define(version: 2018_08_15_165632) do
     t.float "Price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "Title"
   end
 
   create_table "products", force: :cascade do |t|
