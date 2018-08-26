@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  userId: 1
+  state: MyString
+  city: MyString
+  permanentAddress: MyString
+  temporaryAddress: MyString
+  addressSelected: MyString
+
+two:
+  userId: 1
+  state: MyString
+  city: MyString
+  permanentAddress: MyString
+  temporaryAddress: MyString
+  addressSelected: MyString

@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   before_create :confirmation_token
-
-
+  has_many :CustomerAddresses
+  
   #private
   def confirmation_token
       if self.email_confirm_token.blank?
