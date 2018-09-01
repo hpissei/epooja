@@ -19,4 +19,7 @@ Rails.application.routes.draw do
   get 'passwords/', to: 'passwords#change_password'
   resources :orders
   resources :customer_addresses
+  resources :pandits do
+    get 'pandits/place_bid', to: 'pandits#place_bid'#, as: 'pandits_place_bid'
+  end
 end

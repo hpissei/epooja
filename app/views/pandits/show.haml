@@ -1,0 +1,20 @@
+%br
+%div.container-fluid
+  %div.row
+    %h1.jumbotron Orders
+%div.container
+  %div.row
+    %div.col-sm-12.col-xs-12
+      %ul.list-group
+      -if @orders==nil
+        %li.list-group-item.list-group-item-action.list-group-item-danger
+          No Records Found
+          %span.badge 0
+      -else
+        -@orders.each do |order|
+          %li.list-group-item.list-group-item-action
+            %h5.mb-1= order.pooja.Title
+            %p.mb-1= "Rs.#{order.pooja.Price}"
+            %p.mb-1= order.address
+            =link_to "Place Bid",pandit_pandits_place_bid_path(order_id: order.id, pandit_id: current_user.id), {class: "btn btn-sm btn-success"}
+= will_paginate @orders
