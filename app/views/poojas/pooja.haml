@@ -1,14 +1,10 @@
-!!!
-%html
-  %head
-    %title Pooja
-    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
-
-  %body
-    = render partial: 'shared/header'
-    %ul
-      - @pooja.errors.each do |attr, msg|
-        %li = @user.errors.full_messages_for(attr).first if @user.errors[attr].first == msg
+%br
+%div.container-fluid
+  %div.row
+    %h1.jumbotron Book Pooja
+%ul
+  - @pooja.errors.each do |attr, msg|
+    %li = @user.errors.full_messages_for(attr).first if @user.errors[attr].first == msg
 
 = form_for(@order) do |f|
   %div.container

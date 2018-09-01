@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_25_144625) do
+ActiveRecord::Schema.define(version: 2018_08_29_165713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,14 +44,23 @@ ActiveRecord::Schema.define(version: 2018_08_25_144625) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "Pooja_id"
-    t.integer "User_id"
+    t.integer "pooja_id"
+    t.integer "user_id"
     t.date "Book_date"
     t.time "Book_time"
     t.string "Book_status", limit: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "address"
+  end
+
+  create_table "place_bids", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "order_id"
+    t.datetime "placed_at_datetime"
+    t.string "bid_status", limit: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pooja_products", force: :cascade do |t|
@@ -98,4 +107,8 @@ ActiveRecord::Schema.define(version: 2018_08_25_144625) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "orders", "poojas"
+  add_foreign_key "orders", "users"
+  add_foreign_key "place_bids", "orders"
+  add_foreign_key "place_bids", "users"
 end

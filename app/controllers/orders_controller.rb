@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
     if @order
       flash[:success]="Order placed successfully"
       #payment gateway call
+      redirect_to poojas_index_path
     else
       puts "error"
       flash[:notice]="Something went wrong!!!"
@@ -18,4 +19,7 @@ class OrdersController < ApplicationController
   def new
   end
 
+  def show
+    @orders=Order.orders_by_user(current_user.id)
+  end
 end

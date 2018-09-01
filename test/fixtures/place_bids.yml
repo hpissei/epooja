@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pandit_id: 1
+  order_id: 1
+  placed_at_datetime: 2018-08-29 22:24:29
+  bid_status: 
+
+two:
+  pandit_id: 1
+  order_id: 1
+  placed_at_datetime: 2018-08-29 22:24:29
+  bid_status: 

@@ -1,2 +1,3 @@
 class Pooja < ApplicationRecord
+
 end
