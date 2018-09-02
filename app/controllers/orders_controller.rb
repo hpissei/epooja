@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def allowed_params
-    params.require(:order).permit(:Book_time,:Book_date,:Pooja_id,:Book_status,:User_id,:address)
+    params.require(:order).permit(:Book_time,:Book_date,:pooja_id,:Book_status,:user_id,:address)
   end
 
   def create
