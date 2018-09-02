@@ -17,8 +17,8 @@
     %div.row
       %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-8.col-xs-8
         = f.label "Description"
-        = f.hidden_field :Pooja_id, value: @pooja.id
-        = f.hidden_field :User_id, value: current_user.id
+        = f.hidden_field :pooja_id, value: @pooja.id
+        = f.hidden_field :user_id, value: current_user.id
         = f.text_field :Description, value: @pooja.Description, class: "form-control disabled", disabled: true
     %div.row
       %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-8.col-xs-8
