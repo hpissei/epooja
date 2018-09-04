@@ -1,22 +1,23 @@
+<br>
 <div class="container">
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <div class="row">
-  <div class="col-sm-offset-2 col-sm-6 col-xs-offset-2 col-xs-6">
+  <div class="col-sm-offset-2 col-sm-9 col-xs-offset-2 col-xs-9">
     <%= f.label :email, class: "label label-primary" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
   </div>
 </div>
 <div class="row">
-  <div class="col-sm-offset-2 col-sm-6 col-xs-offset-2 col-xs-6">
+  <div class="col-sm-offset-2 col-sm-9 col-xs-offset-2 col-xs-9">
     <%= f.label :password, class: "label label-primary" %><br />
     <%= f.password_field :password, autocomplete: "off", class:"form-control"  %>
   </div>
 </div><br />
 <div class="row">
   <% if devise_mapping.rememberable? -%>
-    <div class="col-sm-offset-2 col-sm-4 col-xs-offset-2 col-xs-4">
+    <div class="col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8">
       <%= f.label :remember_me %>
       <%= f.check_box :remember_me, class:"form"  %>
     </div>

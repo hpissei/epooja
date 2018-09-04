@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-
+before_action :authenticate_user!
   def allowed_params
     params.require(:order).permit(:Book_time,:Book_date,:pooja_id,:Book_status,:user_id,:address)
   end
@@ -21,5 +21,8 @@ class OrdersController < ApplicationController
 
   def show
     @orders=Order.orders_by_user(current_user.id)
+    if(@order==nil)
+      redirect_to orders_path
+    end
   end
 end
