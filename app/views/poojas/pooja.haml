@@ -28,17 +28,17 @@
       %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-8.col-xs-8
         = f.label :Book_date
         = f.hidden_field :Book_status, value: 'a'
-        = f.text_field :Book_date, placeholder: "Booking Date", type: "date", class: "form-control", "date-role": "date", "data-inline": true
+        = f.text_field :Book_date, placeholder: "Booking Date", type: "date", class: "form-control", "date-role": "date", "data-inline": true, required: true
         %br
     %div.row
       %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-8.col-xs-8
         = f.label "Booking Time"
-        = f.text_field :Book_time, placeholder: "Booking Time", type: "time", class: "form-control"
+        = f.text_field :Book_time, placeholder: "Booking Time", type: "time", class: "form-control", required: true
         %br
     %div.row
       %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-8.col-xs-8
         = f.label :address
-        = f.text_area :address, placeholder: "Address", class: "form-control"
+        = f.text_area :address, placeholder: "Address", class: "form-control", required: true
         %br
     %div.row
       %div.col-md-offset-1.col-sm-offset-1.col-xs-offset-1.col-md-3.col-sm-8.col-xs-8
