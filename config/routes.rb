@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get  'poojas/:id', to: 'poojas#pooja', as: 'poojas_pooja'
   #confirm email token
   get 'emails/', to: 'emails#confirm_email_token'
+  get 'emails/verifyemail', to: 'emails#verifyemail'
   #change password
   get 'passwords/', to: 'passwords#change_password'
   resources :orders

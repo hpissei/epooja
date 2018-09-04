@@ -9,6 +9,10 @@ class PanditsController < ApplicationController
     @orders=Order.all.paginate(page: params[:page], per_page: 10)
   end
 
+  def index
+    render "show"
+  end
+
   def show
     @orders=getOrders#Orders.all
     @place_bid=PlaceBid.new

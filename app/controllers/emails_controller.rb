@@ -13,4 +13,7 @@ class EmailsController < ApplicationController
     end
   end
 
+  def verifyemail
+  end
+
 end
