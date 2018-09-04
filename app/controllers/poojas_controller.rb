@@ -3,7 +3,11 @@ class PoojasController < ApplicationController
 
   def index
     if current_user.email_confirmed
-      @poojas=Pooja.all.paginate(page: params[:page], per_page: 10)
+      if current_user.user_type=='p'
+        redirect_to pandits_path
+      else
+        @poojas=Pooja.all.paginate(page: params[:page], per_page: 10)
+      end
     else
       redirect_to emails_verifyemail_path
     end
