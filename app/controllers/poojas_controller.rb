@@ -1,8 +1,12 @@
 class PoojasController < ApplicationController
-  before_action :authenticate_user!, only: ["pooja"]
+  before_action :authenticate_user!, only: ["pooja","index"]
 
   def index
-    @poojas=Pooja.all.paginate(page: params[:page], per_page: 10)
+    if current_user.email_confirmed
+      @poojas=Pooja.all.paginate(page: params[:page], per_page: 10)
+    else
+      redirect_to emails_verifyemail_path
+    end
   end
 
   def pooja
