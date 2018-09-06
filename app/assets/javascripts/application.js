@@ -19,7 +19,7 @@
 'use strict';
   //sign up tab change;
 $(document).on('shown.bs.tab','a[data-toggle="tab"]', function (e) {
-  let target = $(e.target).attr("href"); // activated tab
+  var target = $(e.target).attr("href"); // activated tab
   if(target=="#customer")
     $("#user_user_type").val("c");
   else
