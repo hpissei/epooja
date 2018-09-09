@@ -13,14 +13,13 @@
             = link_to "Home", current_user.user_type=='p' ? pandits_path : poojas_path
           -else
             = link_to "Home", root_path
-        -if current_user.user_type=='c'
-          %li
-            = link_to "Your Orders",orders_path
-        -else
-          %li
-            = link_to "Show My Bids",pandits_path
-        %li
-          %a{:href => "#"} Page 3
+        -if current_user
+          -if current_user.user_type=='c'
+            %li
+              = link_to "Your Orders",orders_path
+          -elsif current_user.user_type=='p'
+            %li
+              = link_to "Show My Bids",pandits_path
       %ul.nav.navbar-nav.navbar-right
         -if current_user
           %li
