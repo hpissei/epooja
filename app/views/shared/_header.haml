@@ -10,7 +10,7 @@
       %ul.nav.navbar-nav
         %li.active
           -if current_user
-            = link_to "Home", current_user.user_type=='p' ? pandits_path : poojas_path
+            = link_to "Home", current_user.user_type=='p' ? pandits_path : poojas_index_path
           -else
             = link_to "Home", root_path
         -if current_user
