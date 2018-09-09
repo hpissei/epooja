@@ -2,6 +2,7 @@ class PoojasController < ApplicationController
   before_action :authenticate_user!, only: ["pooja","index"]
 
   def index
+    #update
     if current_user.email_confirmed
       if current_user.user_type=='p'
         redirect_to pandits_path

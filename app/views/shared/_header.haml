@@ -9,11 +9,16 @@
     #myNavbar.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li.active
-          %a{href: ""} Home
-        %li
-          %a{:href => "#"} Page 1
-        %li
-          %a{:href => "#"} Page 2
+          -if current_user
+            = link_to "Home", current_user.user_type=='p' ? pandits_path : poojas_path
+          -else
+            = link_to "Home", root_path
+        -if current_user.user_type=='c'
+          %li
+            = link_to "Your Orders",orders_path
+        -else
+          %li
+            = link_to "Show My Bids",pandits_path
         %li
           %a{:href => "#"} Page 3
       %ul.nav.navbar-nav.navbar-right
