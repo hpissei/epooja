@@ -1,6 +1,7 @@
 class PoojasController < ApplicationController
   before_action :authenticate_user!, only: ["pooja","index"]
-
+  #before_action :RoleBasedAction.call(current_user, "pooja")
+  require 'user/role'
   def index
     #update
     if current_user.email_confirmed
