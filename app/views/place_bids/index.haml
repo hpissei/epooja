@@ -1,0 +1,22 @@
+%br
+%div.container-fluid
+  %h1.jumbotron Bids
+%div.container-fluid
+  %div.list-group
+    -if @bids.all.count<1
+      %div.list-group-item.list-group-item-danger.clearfix
+        %p You not placed any bids
+    -else
+    -@bids.each do |bid|
+      %div.list-group-item
+        %p
+        =bid.order.id
+        %p
+        =bid.order.pooja.Title
+        %p
+        =bid.order.address
+        %p
+        =bid.order.pooja.Price
+        %p
+        = link_to "Cancel Bid", place_bid_path(bid), method: :delete,remote: true, class: 'btn btn-danger btn-sm', data:{confirm: 'Are you sure you want to cancel the bid?'}
+= will_paginate @bids

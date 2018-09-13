@@ -17,5 +17,4 @@
             %p.mb-1= "Rs.#{order.pooja.Price}"
             %p.mb-1= order.address
             =link_to "Place Bid",pandit_pandits_place_bid_path(order_id: order.id, pandit_id: current_user.id), {class: "btn btn-sm btn-success"}
-            =puts ">>>>>> #{Sendmail.call}"
 = will_paginate @orders

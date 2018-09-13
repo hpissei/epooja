@@ -22,5 +22,10 @@ Rails.application.routes.draw do
   resources :customer_addresses
   resources :pandits do
     get 'pandits/place_bid', to: 'pandits#place_bid'#, as: 'pandits_place_bid'
+    get 'pandits/show_bids', to: 'pandits#show_bids'
   end
+
+  resources :place_bids do
+  end
+
 end

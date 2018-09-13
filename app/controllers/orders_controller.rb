@@ -21,7 +21,7 @@ before_action :authenticate_user!
 
   def show
     @orders=Order.orders_by_user(current_user.id)
-    if(@order==nil)
+    if @orders.all.count<1
       redirect_to orders_path
     end
   end

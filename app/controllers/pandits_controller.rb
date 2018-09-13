@@ -22,7 +22,7 @@ class PanditsController < ApplicationController
 
   def show
     if Role.verify(current_user,'pandit')
-      @orders=getOrders#Orders.all
+      @orders=getOrders.paginate(page: params[:page], per_page: 10)#Orders.all
       @place_bid=PlaceBid.new
     else
       flash[:error]="You are not authorized to access this page!!!"
@@ -52,4 +52,7 @@ class PanditsController < ApplicationController
     end
   end
 
+  def show_bids
+    @bids=PlaceBid.where(user_id:current_user.id)
+  end
 end

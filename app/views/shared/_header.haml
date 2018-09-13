@@ -19,7 +19,7 @@
               = link_to "Your Orders",orders_path
           -elsif current_user.user_type=='p'
             %li
-              = link_to "Show My Bids",pandits_path
+              = link_to "Show My Bids", place_bids_path#pandit_pandits_show_bids_path(current_user)
       %ul.nav.navbar-nav.navbar-right
         -if current_user
           %li
