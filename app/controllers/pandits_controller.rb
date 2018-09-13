@@ -8,7 +8,7 @@ class PanditsController < ApplicationController
   end
 
   def getOrders
-    @orders=Order.all.paginate(page: params[:page], per_page: 10)
+    @orders=Order.where(Book_status: 'a').all.paginate(page: params[:page], per_page: 10)
   end
 
   def index
