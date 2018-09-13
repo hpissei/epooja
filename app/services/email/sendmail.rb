@@ -35,7 +35,7 @@ data = JSON.parse('
      "request_base_url":"localhoist"
   }',quirks_mode: true)
 #'request_base_url':"Application.root"
-sg = SendGrid::API.new(api_key: ENV["SENDGRID"].to_s)#{}"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")
+sg = SendGrid::API.new(api_key: ENV["SENDGRID"].to_s)
 response = sg.client.mail._("send").post(request_body: data)
 puts response.status_code
 puts response.body
