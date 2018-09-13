@@ -1,15 +1,31 @@
-%br
-%br
-%div.container
-  %div.row{align: "center"}
-    = image_tag("bag.png", alt: "bag image", class: "img-thumbnail bag rounded mx-auto d-block")
+-if @orders.all.count<1
   %br
-  %div.row{align: "center"}
-    %p
-      %b Nothing to Display in the Cart
-  %div.row{align: "center"}
-    %p
-      %b
-        %q Hope to see you soon
-  %div.row{align: "center"}
-    = link_to "Continue",poojas_index_path, class: "btn btn-success"
+  %br
+  %div.container
+    %div.row{align: "center"}
+      = image_tag("bag.png", alt: "bag image", class: "img-thumbnail bag rounded mx-auto d-block")
+    %br
+    %div.row{align: "center"}
+      %p
+        %b Nothing to Display in the Cart
+    %div.row{align: "center"}
+      %p
+        %b
+          %q Hope to see you soon
+    %div.row{align: "center"}
+      = link_to "Continue",poojas_index_path, class: "btn btn-success"
+-else
+  %br
+  %div.container-fluid
+    %h1.jumbotron Your Orders
+  %div.container
+    %div.list-group
+    -@orders.each do |order|
+      %div.list-group-item{id: "order#{order.id}"}
+        %div.row
+          = order.pooja.Title
+          = link_to "Delete",order_path(order), method: :delete, class: "btn btn-danger btn-sm pull-right", data: { confirm: 'Are you certain you want to delete this?' }, onclick: "Delete(this.id)"
+        /%button.btn.btn-warning.btn-sm.pull-right Cancel
+=content_for :page_js do
+  %script
+    = render file: "#{Rails.root}/app/views/orders/show.haml.js"
